@@ -1,18 +1,20 @@
 plugins {
-    // Apply the application plugin to add support for building a CLI application in Java.
+    id 'org.springframework.boot' version '2.7.1'
+    id 'io.spring.dependency-management' version '1.0.12.RELEASE'
     id 'application'
     id 'org.siouan.frontend-jdk11'
 }
 
+group = 'org.cat.eye.familygudget.edge'
+version = '0.0.1-SNAPSHOT'
+
 repositories {
-    // Use Maven Central for resolving dependencies.
     mavenCentral()
 }
 
 dependencies {
-    // This dependency is used by the application.
-    implementation 'com.google.guava:guava:30.1.1-jre'
-
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 frontend {
@@ -24,15 +26,12 @@ frontend {
 
 testing {
     suites {
-        // Configure the built-in test suite
         test {
-            // Use JUnit Jupiter test framework
             useJUnitJupiter('5.8.1')
         }
     }
 }
 
 application {
-    // Define the main class for the application.
     mainClass = 'org.cat.eye.familybudget.edge.App'
 }
